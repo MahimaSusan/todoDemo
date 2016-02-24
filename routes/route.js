@@ -5,7 +5,12 @@ app.config(function ($routeProvider){
 		templateUrl:'views/partials/todo.html',
 		controller : 'todoCtrl'
 	})
-
+    .when('/completed',{
+		templateUrl:'views/partials/completed.html',
+		controller : 'completedCtrl'
+	})
+	
+    
 });
 
 

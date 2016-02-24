@@ -9,9 +9,11 @@
 
 	<li ng-repeat="todo in todos track by $index">
     <input type="checkbox" ng-model="todo.done"></input> {{todo.text}}
+    <button ng-click = "count()">play</button>
     <button ng-click = "removeToDo(todo)">remove</button>
     </li>
-    <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+     
+      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
 <ul/>
 
 

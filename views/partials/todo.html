@@ -7,16 +7,34 @@
 
 <ul>
 
-	<li ng-repeat="todo in todos track by $index">
-    <input type="checkbox" ng-model="todo.done"></input> {{todo.text}}
-    <button ng-click = "count()">play</button>
-    <button ng-click = "removeToDo(todo)">remove</button>
-    </li>
-     
-      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+
+	<li class="list" ng-repeat="todo in todos track by $index" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+    <input type="checkbox" ng-model="todo.done" ng-checked = "todo.completed" ng-click ="changeTodo()" ng-change="onCompleteTodo(todo)"  >
+    </input> 
+     <span ng-show ="!todo.completed" >{{todo.text}}</span>
+    <del ng-show ="todo.completed">{{todo.text}}</del>
+    <!--<button ng-click = "play()">play</button>-->
+    <button ng-show="play" type="submit" class="btn btn-small btn-default"  ng-click="play(); showme=true">play</button>
+    <!--<button ng-click ="pause(todo.id)">pause</button>-->
+    <button ng-show="!play" type="submit" class="btn btn-small btn-default" ng-click="pause(todo.id); showme=false">pause</button>
+    <!--<button ng-hide ="showme">jdhf</button>-->
+    <button ng-show="showme">complete</button>
+
+    <button ng-hide="showme" ng-show="completed" ng-click="completed(todo)">Complete</button>
+    <button ng-show = "!completed" ng-click="removeToDo(todo)">remove</button>
+    <button ng-show="showme" ng-click = "removeToDo(todo)">remove</button>
+
+    <div my-directive>
+    </div>
+     </li>
+   
+  
+     <span>{{remaining()}} of {{todo.length}} remaining</span>
+       <a href="" ng-click="archive()">archive</a> 
+      
+      <!--<button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>-->
+
 <ul/>
-
-
 
 
 

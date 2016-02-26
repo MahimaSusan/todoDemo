@@ -4,3 +4,6 @@
     color:black;
     font-weight:bold;
 }
+.strikeItem{
+		text-decoration: line-through;
+		}

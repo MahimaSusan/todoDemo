@@ -30,14 +30,14 @@ app.controller('todoCtrl', function($scope, $timeout) {
     var timer;
     $scope.counter = 0;
     $scope.play = function(id) {
-    	$scope.play = !$scope.play;
+    	$scope.played = !$scope.played;
         $scope.countId = id;
         if (timer == null) {
             updateCounter();
         }
     };
     $scope.pause = function(id) {
-    	  $scope.play = !$scope.play;
+    	  $scope.played = !$scope.played;
         $scope.todos[id].timer = $scope.counter;
         console.log($scope.todos);
         $timeout.cancel(timer);
@@ -78,7 +78,7 @@ app.controller('todoCtrl', function($scope, $timeout) {
         $scope.completed = _.where($scope.todos, {
             completed: true
         }).length;
-        console.log($scope.completed);
+        //console.log($scope.completed);
                 localStorage.setItem('todos', JSON.stringify($scope.todos));
 
     };
@@ -93,11 +93,14 @@ app.controller('todoCtrl', function($scope, $timeout) {
     	 $scope.completed = !$scope.completed;
     }*/
     $scope.completedToDo = [];
-
-     $scope.completed=function(todo){
-         $scope.completed = !$scope.completed;
-        $scope.completedToDo.push(todo);
-        console.log($scope.completedToDo);
-        localStorage.setItem('todos', JSON.stringify($scope.todos));
-       }
+     
+     $scope.complete=function(todo){
+         // $scope.completed = !$scope.completed;
+         todo.completed = true;
+         console.log($scope.todos);
+         $scope.completedToDo.push(todo);
+         console.log($scope.completedToDo);
+        localStorage.setItem('completedToDos', JSON.stringify($scope.completedToDo));
+       };
+       //console.log($scope.completedToDo);
 });

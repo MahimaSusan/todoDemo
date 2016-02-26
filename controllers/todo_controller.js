@@ -1,7 +1,7 @@
 app.controller('todoCtrl', function($scope, $timeout) {
     $scope.todos = [];
     $scope.saved = localStorage.getItem('todos');
-    $scope.todos = (localStorage.getItem('todos') !== null) ? JSON.parse($scope.saved) : [];
+    $scope.todos = (localStorage.getItem('todos') !== "undefined") ? JSON.parse($scope.saved) : [];
     console.log($scope.saved);
     $scope.addToDo = function() {
         $scope.index = $scope.todos.length;
@@ -9,7 +9,8 @@ app.controller('todoCtrl', function($scope, $timeout) {
             id: $scope.index,
             text: $scope.new_todo,
             timer: $scope.counter,
-            completed: false
+            completed: false,
+            counts : $scope.count
         });
         $scope.new_todo = '';
         localStorage.setItem('todos', JSON.stringify($scope.todos));
@@ -93,14 +94,29 @@ app.controller('todoCtrl', function($scope, $timeout) {
     	 $scope.completed = !$scope.completed;
     }*/
     $scope.completedToDo = [];
-     
+    
      $scope.complete=function(todo){
          // $scope.completed = !$scope.completed;
+
          todo.completed = true;
          console.log($scope.todos);
          $scope.completedToDo.push(todo);
          console.log($scope.completedToDo);
+         
+         
+
         localStorage.setItem('completedToDos', JSON.stringify($scope.completedToDo));
+       
+
        };
+
+
+
+       $scope.completedToDos =[];
+ $scope.saved = localStorage.getItem('completedToDos');
+    $scope.completedToDos = (localStorage.getItem('completedToDos') !== null) ? JSON.parse($scope.saved) : [];
+    console.log($scope.saved);
+    $scope.count = $scope.completedToDos.length;
+    console.log(   $scope.count);
        //console.log($scope.completedToDo);
 });

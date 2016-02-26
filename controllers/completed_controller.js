@@ -16,7 +16,7 @@ $scope.completedToDos =[];
     };*/
 
 
-$scope.removeCompleted = function(item) {
+$scope.complete = function(item) {
     	
         var i = $scope.completedToDos.indexOf(item);
         $scope.completedToDos.splice(i, 1);

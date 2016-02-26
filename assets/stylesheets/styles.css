@@ -9,11 +9,17 @@
 		}
 .completed_todos_div{
 	border: 1px solid grey;
+	margin-top: 30px;
 }
 .lists {
 	border-bottom: 1px solid grey;
 	height: 60px;
 }
+.list{
+	border-bottom: 1px solid grey;
+	height: 40px;
+}
 .todo_div{
 	border: 1px solid grey;
+	margin-top: 65px;
 }

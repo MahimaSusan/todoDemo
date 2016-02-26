@@ -7,4 +7,13 @@
 .strikeItem{
 		text-decoration: line-through;
 		}
-		
+.completed_todos_div{
+	border: 1px solid grey;
+}
+.lists {
+	border-bottom: 1px solid grey;
+	height: 60px;
+}
+.todo_div{
+	border: 1px solid grey;
+}

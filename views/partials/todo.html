@@ -3,14 +3,14 @@
 	Add ToDo : <input type ="text" ng-model ="new_todo"></input>
 	<input type = "submit" value="add" ng-click = "addToDo()"></input>
 </div>	
-	
+	<div class="todo_div">
 
 <ul>
 
 
-	<li class="list" ng-repeat="todo in todos track by $index" ng-class="{'selected':$index == selectedRow, strikeItem: todo.completed }" ng-click="setClickedRow($index)">
-  <input type="checkbox" ng-model="todo.done" ng-checked = "todo.completed" ng-click ="changeTodo()" ng-change="onCompleteTodo(todo)"  >
-    </input>  
+	<li class="lists" ng-repeat="todo in todos track by $index" ng-class="{'selected':$index == selectedRow, strikeItem: todo.completed }" ng-click="setClickedRow($index)">
+  <!--<input type="checkbox" ng-model="todo.done" ng-checked = "todo.completed" ng-click ="changeTodo()" ng-change="onCompleteTodo(todo)"  >
+    </input>  -->
      <span ng-show ="!todo.completed" >{{todo.text}}</span>
     <del ng-show ="todo.completed">{{todo.text}}</del>
     <!--<button ng-click = "play()">play</button>-->
@@ -29,7 +29,7 @@
      </li>
    
   
-     <span>{{remaining()}}{{todo.counts}} of {{todo.length}} remaining</span>
+     <span>{{remaining()}} of {{todos.length}} remaining</span>
        <a href="" ng-click="archive()">archive</a> 
       
       <!--<button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>-->
@@ -38,6 +38,6 @@
 
 
 
-
+</div>
 
 

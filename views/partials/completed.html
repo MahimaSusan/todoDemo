@@ -1,11 +1,13 @@
 <div>
     <!--<a href="" ng-click="completed()">completed</a> -->
-      <table>
-    <li class="list" ng-repeat="todo in completedToDos">
-   {{todo.text}}
- <button ng-click= "removeCompleted()">remove</button>
+    <h2>Completed Todos</h2>
+      <div class="completed_todos_div">
+      <!-- {{remaining()}} -->
+    <li class="list" ng-repeat="todo in completedToDo">
+   <!--{{todo.text}}-->{{todo}}
+ <!--<button ng-click= "removeCompleted()">remove</button>-->
 
  
    </li>
-</table>
+</div>
 </div>

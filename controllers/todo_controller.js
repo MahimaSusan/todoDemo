@@ -10,7 +10,8 @@ app.controller('todoCtrl', function($scope, $timeout) {
             text: $scope.new_todo,
             timer: $scope.counter,
             completed: false,
-            counts : $scope.count
+            counts : $scope.count,
+            completedtodo: $scope.completedToDo
         });
         $scope.new_todo = '';
         localStorage.setItem('todos', JSON.stringify($scope.todos));
@@ -55,10 +56,13 @@ app.controller('todoCtrl', function($scope, $timeout) {
     $scope.remaining = function() {
         var count = 0;
         angular.forEach($scope.todos, function(todo) {
-            count += todo.done ? 0 : 1;
+            count += todo.completed ? 0 : 1;
         });
         return count;
     };
+
+   
+
     $scope.archive = function() {
         var oldTodos = $scope.todos;
         $scope.todos = [];
@@ -105,18 +109,25 @@ app.controller('todoCtrl', function($scope, $timeout) {
          
          
 
-        localStorage.setItem('completedToDos', JSON.stringify($scope.completedToDo));
+        localStorage.setItem('todos', JSON.stringify($scope.todos));
        
 
        };
 
 
 
-       $scope.completedToDos =[];
- $scope.saved = localStorage.getItem('completedToDos');
-    $scope.completedToDos = (localStorage.getItem('completedToDos') !== null) ? JSON.parse($scope.saved) : [];
-    console.log($scope.saved);
-    $scope.count = $scope.completedToDos.length;
-    console.log(   $scope.count);
+      // $scope.completedToDos =[];
+// $scope.saved = localStorage.getItem('completedToDos');
+   // $scope.completedToDos = (localStorage.getItem('completedToDos') !== null) ? JSON.parse($scope.saved) : [];
+   // console.log($scope.saved);
+   // $scope.count = $scope.completedToDos.length;
+    //console.log(   $scope.count);
        //console.log($scope.completedToDo);
+
+
+
+
+
+
+       
 });
